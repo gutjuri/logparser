@@ -399,5 +399,29 @@ benchmark_settings = {
         'superFormatThreshold': 0.85,
         'support': 3,
         'tau': 0.6
+    },
+    'messages': {
+        'log_file': 'Messages/Messages.log',
+        'log_format': '<Month> <Date> <Time> <Level> <Component>(\[<PID>\])?: <Content>',
+        'regex': [r'(\d+\.){3}\d+', r'\d{2}:\d{2}:\d{2}'],
+        'minEventCount': 2,
+        'merge_percent': 0.6,
+        'st': 0.39,
+        'depth': 6,
+        'CT': 0.3,
+        'lowerBound': 0.3,
+        'threshold': 0.8,
+        'split_threshold': 10,
+        'rsupport': 40,
+        'max_dist': 0.006,
+        'k': 1,
+        'levels': 2,
+        'groupNum': 25,
+        'maxChildNum': 3,
+        'mergeThreshold': 0.005,
+        'formatLookupThreshold': 0.3,
+        'superFormatThreshold': 0.4,
+        'support': 100,
+        'tau': 0.6
     }
 }
