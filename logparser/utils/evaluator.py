@@ -31,7 +31,7 @@ def evaluate(groundtruth, parsedresult):
     non_empty_log_ids = df_groundtruth[~df_groundtruth['EventId'].isnull()].index
     df_groundtruth = df_groundtruth.loc[non_empty_log_ids]
     df_parsedlog = df_parsedlog.loc[non_empty_log_ids]
-    (precision, recall, f_measure, accuracy) = get_accuracy(df_groundtruth['EventId'], df_parsedlog['EventId'])
+    (precision, recall, f_measure, accuracy) = get_accuracy(df_groundtruth['EventId'], df_parsedlog['EventId'], True)
     print('Precision: %.4f, Recall: %.4f, F1_measure: %.4f, Parsing_Accuracy: %.4f'%(precision, recall, f_measure, accuracy))
     return f_measure, accuracy
 

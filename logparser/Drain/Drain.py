@@ -257,8 +257,8 @@ class LogParser:
         count = 0
         for idx, line in self.df_log.iterrows():
             logID = line['LineId']
-            logmessageL = self.preprocess(line['Content']).strip().split()
-            # logmessageL = filter(lambda x: x != '', re.split('[\s=:,]', self.preprocess(line['Content'])))
+            #logmessageL = self.preprocess(line['Content']).strip().split()
+            logmessageL = list(filter(lambda x: x != '', re.split('[\s=:,]', self.preprocess(line['Content']))))
             matchCluster = self.treeSearch(rootNode, logmessageL)
 
             #Match no existing log cluster
