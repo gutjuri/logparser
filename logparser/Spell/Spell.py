@@ -269,8 +269,9 @@ class LogParser:
         if not os.path.exists(self.savePath):
             os.makedirs(self.savePath)
 
+        endtime = datetime.now()
         self.outputResult(logCluL)
-        print('Parsing done. [Time taken: {!s}]'.format(datetime.now() - starttime))
+        print('Parsing done. [Time taken: {!s}]'.format(endtime - starttime))
 
     def load_data(self):
         headers, regex = self.generate_logformat_regex(self.logformat)

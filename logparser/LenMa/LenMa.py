@@ -31,14 +31,17 @@ class LogParser(object):
         headers, regex = self.generate_logformat_regex(self.logformat)
         self.df_log = self.log_to_dataframe(os.path.join(self.path, self.logname), regex, headers, self.logformat)
         for idx, line in self.df_log.iterrows():
+            if idx % 10000 == 0:
+                print(idx)
             line = line['Content']
             if self.rex:
                 for currentRex in self.rex:
                     line = re.sub(currentRex, '<*>', line)
             words = line.split()
             self.templ_mgr.infer_template(words, idx)
+        endtime = datetime.now()
         self.dump_results()
-        print('Parsing done. [Time taken: {!s}]'.format(datetime.now() - starttime))
+        print('Parsing done. [Time taken: {!s}]'.format(endtime - starttime))
 
     def dump_results(self):
         if not os.path.isdir(self.savePath):

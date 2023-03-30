@@ -349,6 +349,8 @@ class LogParser:
 
         count = 0
         for idx, line in self.df_log.iterrows():
+            if count % 10000 == 0:
+                print(idx)
             ID = line['LineId']
             logmessageL = line['Content']
             if self.rex:
@@ -366,8 +368,9 @@ class LogParser:
         if not os.path.exists(self.savePath):
             os.makedirs(self.savePath)
 
+        endtime = datetime.now()
         self.outputResult(rootNode)
-        print('Parsing done. [Time taken: {!s}]'.format(datetime.now() - starttime))
+        print('Parsing done. [Time taken: {!s}]'.format(endtime - starttime))
 
 
     def load_data(self):

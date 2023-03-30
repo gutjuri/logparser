@@ -63,11 +63,11 @@ for bm_parser_name in bm_parsers:
         log_file = os.path.basename(setting['log_file'])
         bm_parser(setting).parse(log_file)
 
-        F1_measure, accuracy = evaluator.evaluate(
-            groundtruth=os.path.join(indir, log_file + '_structured.csv'),
-            parsedresult=os.path.join(output_dir, log_file + '_structured.csv')
-        )
-        benchmark_result.append([dataset, F1_measure, accuracy])
+        #F1_measure, accuracy = evaluator.evaluate(
+        #    groundtruth=os.path.join(indir, log_file + '_structured.csv'),
+        #    parsedresult=os.path.join(output_dir, log_file + '_structured.csv')
+        #)
+        #benchmark_result.append([dataset, F1_measure, accuracy])
 
     print('\n=== Overall evaluation results ===')
     df_result = pd.DataFrame(benchmark_result, columns=[

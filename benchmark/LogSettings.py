@@ -400,7 +400,7 @@ benchmark_settings = {
         'support': 3,
         'tau': 0.6
     },
-    'messages': {
+    'Messages': {
         'log_file': 'Messages/Messages.log',
         'log_format': '<Month> <Date> <Time> <Level> <Component>(\[<PID>\])?: <Content>',
         'regex': [r'(\d+\.){3}\d+', r'\d{2}:\d{2}:\d{2}'],
